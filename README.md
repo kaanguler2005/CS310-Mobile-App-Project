@@ -5,26 +5,41 @@ This repository contains the proposal, README, Flutter gitignore, and final repo
 
 ## Project Overview
 
-StudyTrack is a Flutter-based mobile application designed to help students study more efficiently and receive feedback from instructors. The app will include a study timer, flashcards, and a question-answer system where instructors can assign questions, evaluate student responses, and provide personalized feedback.
+StudyTrack is a Flutter-based mobile application designed to help students organize their study sessions and improve their learning experience. The application will include a study timer, flashcards, and an interactive question-answer system where instructors can create questions, evaluate student submissions, and provide personalized feedback.
 
-Additionally, the app may include topic-based performance tracking to help instructors identify areas where students need improvement.
+Additionally, the application may include topic-based performance tracking and question recommendations to help instructors identify students' weaknesses and support their learning progress.
 
 ## Team Members
 
 | Name | Student ID |
 |---|---|
+| Kaan Güler | 33887 |
 | Dilara Uzuner | 31319 |
 | Şamil Janok Doğan | 35837 |
-| Kaan Güler | 33887 |
 
-## Step 1 – Task Distribution
+## Project Responsibilities
 
-**Step 1 Coordinator: Kaan Güler**
+### Kaan Güler – Student Features & UI/UX
+- Design and develop the student interface.
+- Implement the study timer and flashcard system.
+- Develop question-answering screens.
+- Implement grade and feedback viewing features.
 
-| Team Member | Responsibilities |
-|---|---|
-| Kaan Güler | GitHub repository setup, team coordination, and communication with the TA |
-| Dilara Uzuner | Project overview, core features, and proposal drafting |
-| Şamil Janok Doğan | Data requirements, potential challenges, and proposal review |
+### Dilara Uzuner – Instructor Features & Evaluation
+- Design and develop the instructor interface.
+- Implement course, topic, and question management.
+- Develop student submission evaluation and grading features.
+- Implement personalized feedback and topic-based performance tracking.
 
-All team members contribute to project planning and review the final submission.
+### Şamil Janok Doğan – Backend & Database
+- Set up Firebase Authentication and Cloud Firestore.
+- Design and manage the database structure.
+- Implement user authentication and role management.
+- Handle data integration between student and instructor features.
+- Manage backend security and integration testing.
+
+## Collaboration
+
+All team members will collaborate on planning, testing, debugging, and integrating the application throughout the semester.
+
+**Step 1 Coordinator:** Kaan Güler
