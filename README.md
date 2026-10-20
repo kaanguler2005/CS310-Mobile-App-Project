@@ -1,4 +1,4 @@
-# CS310-Mobile-App-Project
+# CS310-Mobile-Application-Project
 This repository contains the proposal, README, Flutter gitignore, and final report as well as frontend and backend implementations.
 # StudyTrack
 **CS310 – Mobile Application Development | Group 5**
