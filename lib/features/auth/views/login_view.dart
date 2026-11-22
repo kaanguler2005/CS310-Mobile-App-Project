@@ -7,11 +7,13 @@ import '../viewmodels/login_view_model.dart';
 class LoginView extends StatefulWidget {
   const LoginView({
     super.key,
+    this.viewModel,
     this.onSignedIn,
     this.onForgotPassword,
     this.onSignUp,
   });
 
+  final LoginViewModel? viewModel;
   final VoidCallback? onSignedIn;
   final VoidCallback? onForgotPassword;
   final VoidCallback? onSignUp;
@@ -24,13 +26,14 @@ class _LoginViewState extends State<LoginView> {
   final _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   final _password = TextEditingController();
-  final _viewModel = LoginViewModel();
+  late final _localViewModel = LoginViewModel();
+  LoginViewModel get _viewModel => widget.viewModel ?? _localViewModel;
 
   @override
   void dispose() {
     _email.dispose();
     _password.dispose();
-    _viewModel.dispose();
+    if (widget.viewModel == null) _localViewModel.dispose();
     super.dispose();
   }
 

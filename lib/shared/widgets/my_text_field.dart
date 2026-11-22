@@ -16,6 +16,7 @@ class MyTextField extends StatelessWidget {
     this.textInputAction,
     this.autofillHints,
     this.obscureText = false,
+    this.maxLines = 1,
   });
 
   final String label;
@@ -29,6 +30,7 @@ class MyTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final Iterable<String>? autofillHints;
   final bool obscureText;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +56,10 @@ class MyTextField extends StatelessWidget {
             textInputAction: textInputAction,
             autofillHints: autofillHints,
             obscureText: obscureText,
+            maxLines: maxLines,
             autocorrect: false,
             enableSuggestions: !obscureText,
-            forceErrorText: errorText,
-            decoration: InputDecoration(hintText: hint),
+            decoration: InputDecoration(hintText: hint, errorText: errorText),
           ),
         ),
       ],

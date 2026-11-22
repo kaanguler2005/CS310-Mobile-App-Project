@@ -25,6 +25,17 @@ ThemeData buildStudyTrackTheme() {
     colorScheme: scheme,
     scaffoldBackgroundColor: scheme.surface,
     fontFamily: 'Noto Sans',
+    appBarTheme: AppBarThemeData(
+      backgroundColor: scheme.primary,
+      foregroundColor: scheme.onPrimary,
+      surfaceTintColor: Colors.transparent,
+      titleTextStyle: const TextStyle(
+        color: Colors.white,
+        fontFamily: 'Noto Sans',
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+    ),
     inputDecorationTheme: const InputDecorationThemeData(
       filled: true,
       errorMaxLines: 3,
