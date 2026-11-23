@@ -1,15 +1,10 @@
-# CS310-Mobile-App-Project
-This repository contains the proposal, README, Flutter gitignore, and final report as well as frontend and backend implementations.
 # StudyTrack
-**CS310 – Mobile Application Development | Group 5**
 
-## Project Overview
+CS310 Mobile Application Development, Group 5
 
-StudyTrack is a Flutter-based mobile application designed to help students organize their study sessions and improve their learning experience. The application will include a study timer, flashcards, and an interactive question-answer system where instructors can create questions, evaluate student submissions, and provide personalized feedback.
+StudyTrack is a Flutter app for students and instructors. Students can join courses, answer the questions their instructor gives, see their grades and feedback, and use a study timer and flashcards. Instructors can create courses and questions, read the answers and grade them.
 
-Additionally, the application may include topic-based performance tracking and question recommendations to help instructors identify students' weaknesses and support their learning progress.
-
-## Team Members
+## Team
 
 | Name | Student ID |
 |---|---|
@@ -17,29 +12,23 @@ Additionally, the application may include topic-based performance tracking and q
 | Dilara Uzuner | 31319 |
 | Şamil Janok Doğan | 35837 |
 
-## Project Responsibilities
+## Step 2.2 Contributions
 
-### Kaan Güler – Student Features & UI/UX
-- Design and develop the student interface.
-- Implement the study timer and flashcard system.
-- Develop question-answering screens.
-- Implement grade and feedback viewing features.
+- **Dilara Uzuner:** login, forgot password, new password, profile, instructor home, instructor course, new course and new question screens; theme files (colors, spacing, styles) and the main navigation setup.
+- **Kaan Güler:** sign up, student home, join a course, study timer, flashcards and new flashcard screens.
+- **Şamil Janok Doğan:** settings, student course, answer a question, feedback, instructor answers and give a grade screens; shared widgets (course card, app bar, section title, confirm dialog); connecting all screens together and flashcard delete.
 
-### Dilara Uzuner – Instructor Features & Evaluation
-- Design and develop the instructor interface.
-- Implement course, topic, and question management.
-- Develop student submission evaluation and grading features.
-- Implement personalized feedback and topic-based performance tracking.
+## How to Run
 
-### Şamil Janok Doğan – Backend & Database
-- Set up Firebase Authentication and Cloud Firestore.
-- Design and manage the database structure.
-- Implement user authentication and role management.
-- Handle data integration between student and instructor features.
-- Manage backend security and integration testing.
+Flutter version: 3.50.1 (stable channel), Dart 3.14.0
 
-## Collaboration
+```
+git clone https://github.com/kaanguler2005/CS310-Mobile-App-Project.git
+cd CS310-Mobile-App-Project
+flutter pub get
+flutter run
+```
 
-All team members will collaborate on planning, testing, debugging, and integrating the application throughout the semester.
-
-**Step 1 Coordinator:** Kaan Güler
+Test accounts (placeholder data, real login comes in Step 3):
+- Student: student@example.com / StudyTrack123
+- Instructor: instructor@example.com / StudyTrack123

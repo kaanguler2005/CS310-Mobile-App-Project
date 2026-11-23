@@ -17,6 +17,7 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
   final String tapMSG = "tap to see the answer";
   bool _mine = true;
   int _tappedIndex = -1;
+  final Profile profile = Profile();
 
   @override
   void dispose() {
@@ -25,8 +26,6 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Profile profile =
-        Profile();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -127,118 +126,126 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
                     return ListTile(
                       title: SizedBox(
                         width: double.infinity,
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                alignment: Alignment.bottomLeft,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        _mine
-                                            ? profile
-                                                  .mineFlashcards[index]
-                                                  .question
-                                            : profile
-                                                  .sharedFlashcards[index]
-                                                  .question,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              ScaffoldMessenger.of(
-                                                context,
-                                              ).showSnackBar(
-                                                const SnackBar(
-                                                  content: Text(
-                                                    'TODO flashcard to be shared',
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                            child: const Text(
-                                              "Share",
-                                              style: TextStyle(
-                                                color: AppColors.primary,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              ScaffoldMessenger.of(
-                                                context,
-                                              ).showSnackBar(
-                                                const SnackBar(
-                                                  content: Text(
-                                                    'TODO flashcard to be deleted',
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                            child: const Text(
-                                              "Delete",
-                                              style: TextStyle(
-                                                color: AppColors.primary,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Container(
-                                alignment: Alignment.bottomLeft,
-                                child: TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_tappedIndex == index) {
-                                        _tappedIndex = -1;
-                                      } else {
-                                        _tappedIndex = index;
-                                      }
-                                    });
-                                  },
-                                  child: Text(
-                                    _mine
-                                        ? (_tappedIndex == index
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          _mine
                                               ? profile
                                                     .mineFlashcards[index]
-                                                    .answer
-                                              : tapMSG)
-                                        : (_tappedIndex == index
-                                              ? profile
+                                                    .question
+                                              : profile
                                                     .sharedFlashcards[index]
-                                                    .answer
-                                              : tapMSG),
+                                                    .question,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            child: TextButton(
+                                              onPressed: () {
+                                                ScaffoldMessenger.of(
+                                                  context,
+                                                ).showSnackBar(
+                                                  const SnackBar(
+                                                    content: Text(
+                                                      'TODO flashcard to be shared',
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              child: const Text(
+                                                "Share",
+                                                style: TextStyle(
+                                                  color: AppColors.primary,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            child: TextButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  if (_mine) {
+                                                    profile.mineFlashcards
+                                                        .removeAt(index);
+                                                  } else {
+                                                    profile.sharedFlashcards
+                                                        .removeAt(index);
+                                                  }
+                                                  _tappedIndex = -1;
+                                                });
+                                                ScaffoldMessenger.of(
+                                                  context,
+                                                ).showSnackBar(
+                                                  const SnackBar(
+                                                    content: Text(
+                                                      'Flashcard deleted.',
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              child: const Text(
+                                                "Delete",
+                                                style: TextStyle(
+                                                  color: AppColors.primary,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ),
-                            ],
+                                SizedBox(height: 4),
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (_tappedIndex == index) {
+                                          _tappedIndex = -1;
+                                        } else {
+                                          _tappedIndex = index;
+                                        }
+                                      });
+                                    },
+                                    child: Text(
+                                      _mine
+                                          ? (_tappedIndex == index
+                                                ? profile
+                                                      .mineFlashcards[index]
+                                                      .answer
+                                                : tapMSG)
+                                          : (_tappedIndex == index
+                                                ? profile
+                                                      .sharedFlashcards[index]
+                                                      .answer
+                                                : tapMSG),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
